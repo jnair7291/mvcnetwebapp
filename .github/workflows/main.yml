@@ -27,7 +27,7 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: published_webapp
-        path: ./bin/Release/Publish
+        path: bin/Release/Publish
     - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@3.0.0
       with:
@@ -38,4 +38,4 @@ jobs:
         # FTP account password
         ftp-password: ${{ secrets.FTP_PASSWORD }}
         # The local folder to copy, defaults to root project folder
-        local-dir:  bin\Release\Publish
+        local-dir:  bin/Release/Publish
