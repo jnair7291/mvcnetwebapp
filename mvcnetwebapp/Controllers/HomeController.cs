@@ -15,7 +15,7 @@ namespace mvcnetwebapp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your application's description page.";
 
             return View();
         }
