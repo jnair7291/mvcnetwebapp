@@ -23,8 +23,11 @@ jobs:
     - name: Build and Publish Web App
       run: msbuild mvcnetwebapp.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
  
-    - name: Publish
-      run: dotnet publish -c Release --output ./Release
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: published_webapp
+        path: bin\Release\Publish
     - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@3.0.0
       with:
@@ -35,4 +38,4 @@ jobs:
         # FTP account password
         ftp-password: ${{ secrets.FTP_PASSWORD }}
         # The local folder to copy, defaults to root project folder
-        local-dir: ./Release/
+        local-dir:  bin\Release\Publish
