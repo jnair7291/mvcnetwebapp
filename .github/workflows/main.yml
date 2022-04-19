@@ -33,14 +33,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: FTP Deploy
-      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+    - uses: actions/checkout@v2
+    - name: Upload ftp
+      uses: genietim/ftp-action@releases/v4
       with:
-        # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
-        ftp-server: ${{ secrets.FTP_SERVER }}
-        # FTP account username
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        # FTP account password
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        # The local folder to copy, defaults to root project folder
-        local-dir: D:\a\mvcnetwebapp\mvcnetwebapp\mvcnetwebapp\bin\Release\Publish\
+        host: ${{ secrets.FTP_SERVER }}
+        user: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        localDir: D:\a\mvcnetwebapp\mvcnetwebapp\mvcnetwebapp\bin\Release\Publish\
+        remoteDir: "www"
