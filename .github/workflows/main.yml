@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
  
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
  
     steps:
     - uses: actions/checkout@v1
@@ -28,14 +28,4 @@ jobs:
       with:
         name: published_webapp
         path: bin/Release/Publish/
-    - name: FTP Deploy
-      uses: SamKirkland/FTP-Deploy-Action@3.0.0
-      with:
-        # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
-        ftp-server: ${{ secrets.FTP_SERVER }}
-        # FTP account username
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        # FTP account password
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        # The local folder to copy, defaults to root project folder
-        local-dir:  bin/Release/Publish
+    
