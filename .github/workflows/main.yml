@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
     paths-ignore: 
-      -'./mvcnetwebapp/Web.config'
+      -'D:\a\mvcnetwebapp\mvcnetwebapp\mvcnetwebapp\Web.config'
  
 jobs:
   build:
