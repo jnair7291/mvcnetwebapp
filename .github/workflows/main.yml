@@ -3,8 +3,6 @@ name: Build Web App
 on:
   push:
     branches: [ master ]
-    paths-ignore: 
-      -'D:\a\mvcnetwebapp\mvcnetwebapp\mvcnetwebapp\Web.config'
  
 jobs:
   build:
