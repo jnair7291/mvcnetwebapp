@@ -37,12 +37,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Upload ftp
-      uses: genietim/ftp-action@releases/v4
+    - name: trigger single Job
+      uses: appleboy/jenkins-action@master
       with:
-        host: ${{ secrets.FTP_SERVER }}
-        user: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        localDir: D:\a\mvcnetwebapp\mvcnetwebapp\mvcnetwebapp\bin\Release\Publish\
-        remoteDir: "www"
+        url: "http://localhost:8080/"
+        user: "jijo"
+        token: 11a8ff84c8ed1bde69f3e1cd48f95dd5a4
+        job: "testBuild"
