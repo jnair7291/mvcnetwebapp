@@ -38,7 +38,7 @@ jobs:
     - name: trigger single Job
       uses: appleboy/jenkins-action@master
       with:
-        url: "http://localhost:8080/"
+        url: " https://1aeb-223-226-68-92.ngrok.io"
         user: "jijo"
         token: 11a8ff84c8ed1bde69f3e1cd48f95dd5a4
         job: "testBuild"
