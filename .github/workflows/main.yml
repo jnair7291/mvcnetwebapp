@@ -30,6 +30,13 @@ jobs:
       with:
         name: published_webapp
         path: D:\a\mvcnetwebapp\mvcnetwebapp\mvcnetwebapp\bin\Release\Publish\
+    - name: Update database
+      run: |
+       dotnet tool install --global dotnet-ef
+       dotnet tool restore
+       dotnet ef database update -c DataContext -p mvcnetwebapp -s mvcnetwebapp
+      env:
+       ASPNETCORE_ENVIRONMENT: Development
     
   notify:
     needs: build
